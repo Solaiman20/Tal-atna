@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "50264098849",
+    "project_id": "talatna-3d71f",
+    "storage_bucket": "talatna-3d71f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50264098849:android:6adf16feb6ad027a577b60",
+        "android_client_info": {
+          "package_name": "com.example.talatna1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "50264098849-e6shr6210ovlj1tvlsi6tl42f54pknv4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdAyPmncgtSc3VTP9HSrGFAPzQQO1mSJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "50264098849-e6shr6210ovlj1tvlsi6tl42f54pknv4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "50264098849-mbububpq7h5ffm49cim11gd91abm35st.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.talatna1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
