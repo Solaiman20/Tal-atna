@@ -1,6 +1,6 @@
-class Friends {
+class Friend {
   final String userName;
   final String Email;
   final String iban;
-  Friends(this.userName, this.Email, this.iban);
+  Friend(this.userName, this.Email, this.iban);
 }
