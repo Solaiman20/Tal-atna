@@ -1,20 +1,43 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:talatna1/Widgets/about_us.dart';
 import 'package:talatna1/Widgets/account.dart';
 import 'package:talatna1/Widgets/friends.dart';
 import 'package:talatna1/Widgets/groups.dart';
+import 'package:talatna1/Widgets/requests.dart';
 import 'package:talatna1/main.dart';
 import '../Objects/friends_object.dart';
 import '../Objects/tal\'aa.dart';
 import './home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import './Bills.dart';
+import 'package:image_picker/image_picker.dart';
 
-class SideBar extends StatelessWidget {
-  final user = FirebaseAuth.instance.currentUser;
+class SideBar extends StatefulWidget {
   final List<Friend> _dataList;
   final List<Talaa> a;
   SideBar(this._dataList, this.a);
+
+  @override
+  State<SideBar> createState() => _SideBarState();
+}
+
+class _SideBarState extends State<SideBar> {
+  final user = FirebaseAuth.instance.currentUser;
+
+  File? _imageFile;
+
+  Future<void> _getImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        _imageFile = File(pickedFile.path);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -25,12 +48,16 @@ class SideBar extends StatelessWidget {
           accountName: Text("Hello it is me"),
           accountEmail: Text(user!.email!),
           currentAccountPicture: CircleAvatar(
-            child: ClipOval(
-              child: Image.network(
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZNw-Xb72bT1CdUmNoV1ywDbQTQ22IcUTjOw&usqp=CAU",
-                width: 90,
-                height: 90,
-                fit: BoxFit.cover,
+            child: GestureDetector(
+              onTap: _getImage,
+              child: ClipOval(
+                child: Image.network(
+                  _imageFile?.path ??
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZNw-Xb72bT1CdUmNoV1ywDbQTQ22IcUTjOw&usqp=CAU",
+                  width: 90,
+                  height: 90,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
@@ -46,8 +73,10 @@ class SideBar extends StatelessWidget {
           leading: Icon(Icons.account_circle),
           title: Text("Account"),
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Account(_dataList, a)));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Account(widget._dataList, widget.a)));
           },
         ),
         ListTile(
@@ -57,43 +86,56 @@ class SideBar extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => HomePage(_dataList, a)));
+                    builder: (context) =>
+                        HomePage(widget._dataList, widget.a)));
           },
         ),
         ListTile(
           leading: Icon(Icons.group),
           title: Text("Friends"),
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Friends(_dataList, a)));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Friends(widget._dataList, widget.a)));
           },
         ),
         ListTile(
           leading: Icon(Icons.group),
           title: Text("Groups"),
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Groups(_dataList, a)));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Groups(widget._dataList, widget.a)));
           },
         ),
         ListTile(
           leading: Icon(Icons.receipt_long),
           title: Text("Bills"),
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Bills(_dataList, a)));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Bills(widget._dataList, widget.a)));
           },
         ),
         ListTile(
           leading: Icon(Icons.notifications),
           title: Text("Requests"),
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        Requests(widget._dataList, widget.a)));
+          },
           trailing: ClipOval(
             child: Container(
               color: Colors.red,
               child: Center(
                 child: Text(
-                  "8",
+                  "2",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 12,
@@ -110,8 +152,10 @@ class SideBar extends StatelessWidget {
           leading: Icon(Icons.info),
           title: Text("About Us"),
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => AboutUs(_dataList, a)));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => AboutUs(widget._dataList, widget.a)));
           },
         ),
         ListTile(
