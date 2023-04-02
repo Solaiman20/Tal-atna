@@ -1,6 +1,7 @@
 class Friend {
   final String userName;
-  final String Email;
+  final String email;
   final String iban;
-  Friend(this.userName, this.Email, this.iban);
+  bool isSelected;
+  Friend(this.userName, this.email, this.iban, this.isSelected);
 }

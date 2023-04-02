@@ -4,12 +4,17 @@ import 'package:talatna1/Widgets/account.dart';
 import 'package:talatna1/Widgets/friends.dart';
 import 'package:talatna1/Widgets/groups.dart';
 import 'package:talatna1/main.dart';
+import '../Objects/friends_object.dart';
+import '../Objects/tal\'aa.dart';
 import './home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import './Bills.dart';
 
 class SideBar extends StatelessWidget {
   final user = FirebaseAuth.instance.currentUser;
+  final List<Friend> _dataList;
+  final List<Talaa> a;
+  SideBar(this._dataList, this.a);
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -41,8 +46,8 @@ class SideBar extends StatelessWidget {
           leading: Icon(Icons.account_circle),
           title: Text("Account"),
           onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Account()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Account(_dataList, a)));
           },
         ),
         ListTile(
@@ -50,31 +55,33 @@ class SideBar extends StatelessWidget {
           title: Text("Tal'at"),
           onTap: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => HomePage()));
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HomePage(_dataList, a)));
           },
         ),
         ListTile(
           leading: Icon(Icons.group),
           title: Text("Friends"),
           onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Friends()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Friends(_dataList, a)));
           },
         ),
         ListTile(
           leading: Icon(Icons.group),
           title: Text("Groups"),
           onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Groups()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Groups(_dataList, a)));
           },
         ),
         ListTile(
           leading: Icon(Icons.receipt_long),
           title: Text("Bills"),
           onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Bills()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Bills(_dataList, a)));
           },
         ),
         ListTile(
@@ -103,8 +110,8 @@ class SideBar extends StatelessWidget {
           leading: Icon(Icons.info),
           title: Text("About Us"),
           onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => AboutUs()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => AboutUs(_dataList, a)));
           },
         ),
         ListTile(
