@@ -8,6 +8,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'Objects/friends_object.dart';
 import 'Objects/tal\'aa.dart';
 import 'firebase_options.dart';
+import './Widgets/requests.dart';
 
 void main() async {
   await Firebase.initializeApp(
