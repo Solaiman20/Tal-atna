@@ -32,7 +32,7 @@ class _RequestsState extends State<Requests> {
           Friend("Mohammed", "le@gmail.com", "SA8288484883", false),
           Friend("Ahmed", "ahmed@gmail.com", "SA680000243568", false)
         ],
-        "Khobar",
+        "Dammam",
         "The corniche")
   ];
   bool isvisible1 = true;
