@@ -74,6 +74,13 @@ class _FriendsState extends State<Friends> {
                             });
                           },
                           leading: const Icon(Icons.list),
+                          trailing: IconButton(
+                              icon: Icon(Icons.close),
+                              onPressed: () {
+                                setState(() {
+                                  widget._dataList.removeAt(index);
+                                });
+                              }),
                           title: Text(
                             widget._dataList[index].userName,
                             style: TextStyle(color: Colors.black, fontSize: 15),

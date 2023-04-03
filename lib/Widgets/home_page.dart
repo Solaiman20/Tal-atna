@@ -74,6 +74,14 @@ class _HomePageState extends State<HomePage> {
                               selectedTalaa = widget.a[index];
                             });
                           },
+                          trailing: IconButton(
+                            icon: Icon(Icons.close),
+                            onPressed: () {
+                              setState(() {
+                                widget.a.removeAt(index);
+                              });
+                            },
+                          ),
                           leading: const Icon(Icons.list),
                           title: Text(
                             widget.a[index].name,
