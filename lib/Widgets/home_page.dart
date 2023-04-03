@@ -56,106 +56,116 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.blueGrey,
         ),
         drawer: SideBar(widget._dataList, widget.a),
-        body: Row(
-          children: [
-            Expanded(
-              flex: 1,
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: widget.a.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Card(
-                        elevation: 5,
-                        child: ListTile(
-                          onTap: () {
-                            setState(() {
-                              selectedTalaa = widget.a[index];
-                            });
-                          },
-                          trailing: IconButton(
-                            icon: Icon(Icons.close),
-                            onPressed: () {
+        body: Container(
+          decoration: BoxDecoration(
+            color: Colors.blueGrey.shade100,
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                flex: 1,
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: widget.a.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Card(
+                          elevation: 5,
+                          child: ListTile(
+                            onTap: () {
                               setState(() {
-                                widget.a.removeAt(index);
+                                selectedTalaa = widget.a[index];
                               });
                             },
+                            trailing: IconButton(
+                              icon: Icon(Icons.close),
+                              onPressed: () {
+                                setState(() {
+                                  widget.a.removeAt(index);
+                                });
+                              },
+                            ),
+                            leading: const Icon(Icons.list),
+                            title: Text(
+                              widget.a[index].name,
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 15),
+                            ),
                           ),
-                          leading: const Icon(Icons.list),
-                          title: Text(
-                            widget.a[index].name,
-                            style: TextStyle(color: Colors.black, fontSize: 15),
-                          ),
-                        ),
-                      );
-                    }),
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Card(
-                elevation: 5,
-                child: Builder(
-                  builder: (BuildContext context) {
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text("The Name: ",
-                                style: TextStyle(
-                                    fontSize: 24, fontWeight: FontWeight.bold)),
-                            Text(selectedTalaa?.name ?? "",
-                                style: TextStyle(fontSize: 20)),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text("Location: ",
-                                style: TextStyle(
-                                    fontSize: 24, fontWeight: FontWeight.bold)),
-                            Text(selectedTalaa?.location ?? "",
-                                style: TextStyle(fontSize: 20)),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text("Date and time: ",
-                                style: TextStyle(
-                                    fontSize: 24, fontWeight: FontWeight.bold)),
-                            Text(selectedTalaa?.date ?? "",
-                                style: TextStyle(fontSize: 20)),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text("Friends coming: ",
-                                style: TextStyle(
-                                    fontSize: 24, fontWeight: FontWeight.bold)),
-                            Text(
-                                selectedTalaa?.friends
-                                        .map((f) => f.userName)
-                                        .join(", ") ??
-                                    "",
-                                style: TextStyle(fontSize: 20)),
-                          ],
-                        ),
-                      ],
-                    );
-                  },
+                        );
+                      }),
                 ),
               ),
-            ),
-          ],
+              Expanded(
+                flex: 2,
+                child: Card(
+                  elevation: 5,
+                  child: Builder(
+                    builder: (BuildContext context) {
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text("The Name: ",
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold)),
+                              Text(selectedTalaa?.name ?? "",
+                                  style: TextStyle(fontSize: 20)),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text("Location: ",
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold)),
+                              Text(selectedTalaa?.location ?? "",
+                                  style: TextStyle(fontSize: 20)),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text("Date and time: ",
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold)),
+                              Text(selectedTalaa?.date ?? "",
+                                  style: TextStyle(fontSize: 20)),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text("Friends coming: ",
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold)),
+                              Text(
+                                  selectedTalaa?.friends
+                                          .map((f) => f.userName)
+                                          .join(", ") ??
+                                      "",
+                                  style: TextStyle(fontSize: 20)),
+                            ],
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         floatingActionButton: FloatingActionButton(
