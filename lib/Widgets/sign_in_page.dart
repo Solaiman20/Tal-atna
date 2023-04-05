@@ -21,12 +21,12 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.blueGrey.shade100,
-      ),
-      child: Scaffold(
-        body: Column(
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          color: Colors.blueGrey.shade100,
+        ),
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(

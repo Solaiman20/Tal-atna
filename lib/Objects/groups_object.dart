@@ -1,13 +1,11 @@
 import './friends_object.dart';
 import "./tal'aa.dart";
 
-class Groups {
+class Group {
   final List<Friend> friends;
   final String title;
-  final Talaa talaa;
-  Groups(
+  Group(
     this.friends,
     this.title,
-    this.talaa,
   );
 }

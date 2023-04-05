@@ -4,11 +4,14 @@ import 'package:talatna1/Objects/tal\'aa.dart';
 import 'package:talatna1/Objects/friends_object.dart';
 import 'package:talatna1/Widgets/SideBar.dart';
 
+import '../Objects/groups_object.dart';
+
 class AboutUs extends StatelessWidget {
   final user = FirebaseAuth.instance.currentUser;
   final List<Friend> _dataList;
   final List<Talaa> a;
-  AboutUs(this._dataList, this.a);
+  final List<Group> b;
+  AboutUs(this._dataList, this.a, this.b);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,7 @@ class AboutUs extends StatelessWidget {
           title: Text("About Us"),
           backgroundColor: Colors.blueGrey,
         ),
-        drawer: SideBar(_dataList, a),
+        drawer: SideBar(_dataList, a, b),
         body: Container(
             decoration: BoxDecoration(
               color: Colors.blueGrey.shade100,

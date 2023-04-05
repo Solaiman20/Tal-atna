@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../Objects/friends_object.dart';
+import '../Objects/groups_object.dart';
 import '../Objects/tal\'aa.dart';
 import './SideBar.dart';
 import 'new_talaa.dart';
@@ -8,8 +9,9 @@ import 'new_talaa.dart';
 class HomePage extends StatefulWidget {
   final List<Friend> _dataList;
   final List<Talaa> a;
+  final List<Group> b;
 
-  HomePage(this._dataList, this.a);
+  HomePage(this._dataList, this.a, this.b);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -55,7 +57,7 @@ class _HomePageState extends State<HomePage> {
           title: Text("Tal'aat"),
           backgroundColor: Colors.blueGrey,
         ),
-        drawer: SideBar(widget._dataList, widget.a),
+        drawer: SideBar(widget._dataList, widget.a, widget.b),
         body: Container(
           decoration: BoxDecoration(
             color: Colors.blueGrey.shade100,

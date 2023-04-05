@@ -2,12 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:talatna1/Widgets/about_us.dart';
-import 'package:talatna1/Widgets/account.dart';
 import 'package:talatna1/Widgets/friends.dart';
 import 'package:talatna1/Widgets/groups.dart';
 import 'package:talatna1/Widgets/requests.dart';
 import 'package:talatna1/main.dart';
 import '../Objects/friends_object.dart';
+import '../Objects/groups_object.dart';
 import '../Objects/tal\'aa.dart';
 import './home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -17,7 +17,8 @@ import 'package:image_picker/image_picker.dart';
 class SideBar extends StatefulWidget {
   final List<Friend> _dataList;
   final List<Talaa> a;
-  SideBar(this._dataList, this.a);
+  final List<Group> b;
+  SideBar(this._dataList, this.a, this.b);
 
   @override
   State<SideBar> createState() => _SideBarState();
@@ -78,7 +79,7 @@ class _SideBarState extends State<SideBar> {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            HomePage(widget._dataList, widget.a)));
+                            HomePage(widget._dataList, widget.a,widget.b)));
               },
             ),
             ListTile(
@@ -89,7 +90,7 @@ class _SideBarState extends State<SideBar> {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            Friends(widget._dataList, widget.a)));
+                            Friends(widget._dataList, widget.a,widget.b)));
               },
             ),
             ListTile(
@@ -100,7 +101,7 @@ class _SideBarState extends State<SideBar> {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            Groups(widget._dataList, widget.a)));
+                            Groups(widget._dataList, widget.a,widget.b)));
               },
             ),
             ListTile(
@@ -111,7 +112,7 @@ class _SideBarState extends State<SideBar> {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            Bills(widget._dataList, widget.a)));
+                            Bills(widget._dataList, widget.a,widget.b)));
               },
             ),
             ListTile(
@@ -122,7 +123,7 @@ class _SideBarState extends State<SideBar> {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            Requests(widget._dataList, widget.a)));
+                            Requests(widget._dataList, widget.a,widget.b)));
               },
               trailing: ClipOval(
                 child: Container(
@@ -150,7 +151,7 @@ class _SideBarState extends State<SideBar> {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            AboutUs(widget._dataList, widget.a)));
+                            AboutUs(widget._dataList, widget.a,widget.b)));
               },
             ),
             ListTile(
