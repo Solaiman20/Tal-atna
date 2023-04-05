@@ -21,30 +21,36 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          TextField(
-            controller: emailController,
-            decoration: InputDecoration(
-              labelText: "Email",
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.blueGrey.shade100,
+      ),
+      child: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              controller: emailController,
+              decoration: InputDecoration(
+                labelText: "Email",
+              ),
             ),
-          ),
-          TextField(
-            controller: passwordController,
-            decoration: InputDecoration(
-              labelText: "Password",
+            TextField(
+              controller: passwordController,
+              decoration: InputDecoration(
+                labelText: "Password",
+              ),
             ),
-          ),
-          ElevatedButton(
-            onPressed: signIn as dynamic,
-            child: Text("Sign in"),
-          ),
-          TextButton(
-            onPressed: signUp as dynamic,
-            child: Text("Sign Up"),
-          )
-        ],
+            ElevatedButton(
+              onPressed: signIn as dynamic,
+              child: Text("Sign in"),
+            ),
+            TextButton(
+              onPressed: signUp as dynamic,
+              child: Text("Sign Up"),
+            )
+          ],
+        ),
       ),
     );
   }

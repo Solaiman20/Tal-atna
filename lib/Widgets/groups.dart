@@ -20,8 +20,13 @@ class Groups extends StatelessWidget {
           backgroundColor: Colors.blueGrey,
         ),
         drawer: SideBar(_dataList, a),
-        body: Center(
-          child: Text('Welcome to Tal\'atna'),
+        body: Container(
+          decoration: BoxDecoration(
+            color: Colors.blueGrey.shade100,
+          ),
+          child: Center(
+            child: Text('Welcome to Tal\'atna'),
+          ),
         ),
       ),
     );

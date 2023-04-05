@@ -46,82 +46,87 @@ class _RequestsState extends State<Requests> {
           backgroundColor: Colors.blueGrey,
         ),
         drawer: SideBar(widget._dataList, widget.a),
-        body: Column(children: [
-          Visibility(
-            visible: isvisible1,
-            child: Card(
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: Text(
-                        "Nasser is inviting you to a tal'aa named ${b[0].name} in ${b[0].location}"),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        IconButton(
-                            onPressed: () {
-                              setState(() {
-                                widget.a.add(b[0]);
-                                isvisible1 = false;
-                              });
-                            },
-                            icon: Icon(Icons.check)),
-                        IconButton(
-                            onPressed: () {
-                              setState(() {
-                                isvisible1 = false;
-                              });
-                            },
-                            icon: Icon(Icons.close))
-                      ],
+        body: Container(
+          decoration: BoxDecoration(
+            color: Colors.blueGrey.shade100,
+          ),
+          child: Column(children: [
+            Visibility(
+              visible: isvisible1,
+              child: Card(
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                          "Nasser is inviting you to a tal'aa named ${b[0].name} in ${b[0].location}"),
                     ),
-                  ),
-                ],
+                    Expanded(
+                      flex: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  widget.a.add(b[0]);
+                                  isvisible1 = false;
+                                });
+                              },
+                              icon: Icon(Icons.check)),
+                          IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  isvisible1 = false;
+                                });
+                              },
+                              icon: Icon(Icons.close))
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          Visibility(
-            visible: isvisible2,
-            child: Card(
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: Text(
-                        "Ahmed is inviting you to a tal'aa named ${b[1].name} in ${b[1].location}"),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        IconButton(
-                            onPressed: () {
-                              setState(() {
-                                widget.a.add(b[1]);
-                                isvisible2 = false;
-                              });
-                            },
-                            icon: Icon(Icons.check)),
-                        IconButton(
-                            onPressed: () {
-                              setState(() {
-                                isvisible2 = false;
-                              });
-                            },
-                            icon: Icon(Icons.close))
-                      ],
+            Visibility(
+              visible: isvisible2,
+              child: Card(
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                          "Ahmed is inviting you to a tal'aa named ${b[1].name} in ${b[1].location}"),
                     ),
-                  ),
-                ],
+                    Expanded(
+                      flex: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  widget.a.add(b[1]);
+                                  isvisible2 = false;
+                                });
+                              },
+                              icon: Icon(Icons.check)),
+                          IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  isvisible2 = false;
+                                });
+                              },
+                              icon: Icon(Icons.close))
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ]),
+          ]),
+        ),
       ),
     );
   }

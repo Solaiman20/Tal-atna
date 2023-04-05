@@ -41,131 +41,126 @@ class _SideBarState extends State<SideBar> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+        backgroundColor: Colors.blueGrey.shade100,
         child: ListView(
-      padding: EdgeInsets.zero,
-      children: [
-        UserAccountsDrawerHeader(
-          accountName: Text("Hello it is me"),
-          accountEmail: Text(user!.email!),
-          currentAccountPicture: CircleAvatar(
-            child: GestureDetector(
-              onTap: _getImage,
-              child: ClipOval(
-                child: Image.network(
-                  _imageFile?.path ??
-                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZNw-Xb72bT1CdUmNoV1ywDbQTQ22IcUTjOw&usqp=CAU",
-                  width: 90,
-                  height: 90,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: NetworkImage(
-                  "https://images.unsplash.com/photo-1483232539664-d89822fb5d3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvdG8lMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
-                ),
-                fit: BoxFit.cover),
-          ),
-        ),
-        ListTile(
-          leading: Icon(Icons.account_circle),
-          title: Text("Account"),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => Account(widget._dataList, widget.a)));
-          },
-        ),
-        ListTile(
-          leading: Icon(Icons.event_note),
-          title: Text("Tal'at"),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        HomePage(widget._dataList, widget.a)));
-          },
-        ),
-        ListTile(
-          leading: Icon(Icons.group),
-          title: Text("Friends"),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => Friends(widget._dataList, widget.a)));
-          },
-        ),
-        ListTile(
-          leading: Icon(Icons.group),
-          title: Text("Groups"),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => Groups(widget._dataList, widget.a)));
-          },
-        ),
-        ListTile(
-          leading: Icon(Icons.receipt_long),
-          title: Text("Bills"),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => Bills(widget._dataList, widget.a)));
-          },
-        ),
-        ListTile(
-          leading: Icon(Icons.notifications),
-          title: Text("Requests"),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        Requests(widget._dataList, widget.a)));
-          },
-          trailing: ClipOval(
-            child: Container(
-              color: Colors.red,
-              child: Center(
-                child: Text(
-                  "2",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text("Hello it is me"),
+              accountEmail: Text(user!.email!),
+              currentAccountPicture: CircleAvatar(
+                child: GestureDetector(
+                  onTap: _getImage,
+                  child: ClipOval(
+                    child: Image.network(
+                      _imageFile?.path ??
+                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZNw-Xb72bT1CdUmNoV1ywDbQTQ22IcUTjOw&usqp=CAU",
+                      width: 90,
+                      height: 90,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-              width: 20,
-              height: 20,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: NetworkImage(
+                      "https://images.unsplash.com/photo-1483232539664-d89822fb5d3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvdG8lMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+                    ),
+                    fit: BoxFit.cover),
+              ),
             ),
-          ),
-        ),
-        Divider(),
-        ListTile(
-          leading: Icon(Icons.info),
-          title: Text("About Us"),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => AboutUs(widget._dataList, widget.a)));
-          },
-        ),
-        ListTile(
-          leading: Icon(Icons.logout),
-          title: Text("Sign Out"),
-          onTap: () {
-            // FirebaseAuth.instance.signOut();
-          },
-        ),
-      ],
-    ));
+            ListTile(
+              leading: Icon(Icons.event_note),
+              title: Text("Tal'at"),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            HomePage(widget._dataList, widget.a)));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.group),
+              title: Text("Friends"),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            Friends(widget._dataList, widget.a)));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.group),
+              title: Text("Groups"),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            Groups(widget._dataList, widget.a)));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.receipt_long),
+              title: Text("Bills"),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            Bills(widget._dataList, widget.a)));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.notifications),
+              title: Text("Requests"),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            Requests(widget._dataList, widget.a)));
+              },
+              trailing: ClipOval(
+                child: Container(
+                  color: Colors.red,
+                  child: Center(
+                    child: Text(
+                      "2",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                  width: 20,
+                  height: 20,
+                ),
+              ),
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.info),
+              title: Text("About Us"),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            AboutUs(widget._dataList, widget.a)));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text("Sign Out"),
+              onTap: () {
+                // FirebaseAuth.instance.signOut();
+              },
+            ),
+          ],
+        ));
   }
 }
