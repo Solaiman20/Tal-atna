@@ -1,9 +1,7 @@
 import "./tal'aa.dart";
 
 class Bill {
-  final double amount;
-  final String iban;
-  final bool state;
+  final String amount;
   final Talaa talaa;
-  Bill(this.amount, this.iban, this.state, this.talaa);
+  Bill(this.amount, this.talaa);
 }

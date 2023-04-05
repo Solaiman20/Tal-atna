@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:talatna1/Widgets/SideBar.dart';
 import 'package:talatna1/Widgets/newGroup.dart';
+import '../Objects/bills.dart';
 import '../Objects/groups_object.dart';
 
 import '../Objects/friends_object.dart';
@@ -11,7 +12,8 @@ class Groups extends StatefulWidget {
   final List<Friend> _dataList;
   final List<Talaa> a;
   final List<Group> b;
-  Groups(this._dataList, this.a, this.b);
+  final List<Bill> c;
+  Groups(this._dataList, this.a, this.b, this.c);
 
   @override
   State<Groups> createState() => _GroupsState();
@@ -53,7 +55,7 @@ class _GroupsState extends State<Groups> {
           title: Text("Groups"),
           backgroundColor: Colors.blueGrey,
         ),
-        drawer: SideBar(widget._dataList, widget.a, widget.b),
+        drawer: SideBar(widget._dataList, widget.a, widget.b, widget.c),
         body: Container(
           decoration: BoxDecoration(
             color: Colors.blueGrey.shade100,

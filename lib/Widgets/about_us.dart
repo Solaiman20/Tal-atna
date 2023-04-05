@@ -4,6 +4,7 @@ import 'package:talatna1/Objects/tal\'aa.dart';
 import 'package:talatna1/Objects/friends_object.dart';
 import 'package:talatna1/Widgets/SideBar.dart';
 
+import '../Objects/bills.dart';
 import '../Objects/groups_object.dart';
 
 class AboutUs extends StatelessWidget {
@@ -11,7 +12,8 @@ class AboutUs extends StatelessWidget {
   final List<Friend> _dataList;
   final List<Talaa> a;
   final List<Group> b;
-  AboutUs(this._dataList, this.a, this.b);
+  final List<Bill> c;
+  AboutUs(this._dataList, this.a, this.b, this.c);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class AboutUs extends StatelessWidget {
           title: Text("About Us"),
           backgroundColor: Colors.blueGrey,
         ),
-        drawer: SideBar(_dataList, a, b),
+        drawer: SideBar(_dataList, a, b, c),
         body: Container(
             decoration: BoxDecoration(
               color: Colors.blueGrey.shade100,

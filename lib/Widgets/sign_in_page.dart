@@ -24,7 +24,14 @@ class _SignInPageState extends State<SignInPage> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          color: Colors.blueGrey.shade100,
+          gradient: LinearGradient(
+            colors: [
+              Colors.blueGrey.shade100,
+              Colors.white,
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

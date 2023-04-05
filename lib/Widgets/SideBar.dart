@@ -6,6 +6,7 @@ import 'package:talatna1/Widgets/friends.dart';
 import 'package:talatna1/Widgets/groups.dart';
 import 'package:talatna1/Widgets/requests.dart';
 import 'package:talatna1/main.dart';
+import '../Objects/bills.dart';
 import '../Objects/friends_object.dart';
 import '../Objects/groups_object.dart';
 import '../Objects/tal\'aa.dart';
@@ -18,7 +19,8 @@ class SideBar extends StatefulWidget {
   final List<Friend> _dataList;
   final List<Talaa> a;
   final List<Group> b;
-  SideBar(this._dataList, this.a, this.b);
+  final List<Bill> c;
+  SideBar(this._dataList, this.a, this.b, this.c);
 
   @override
   State<SideBar> createState() => _SideBarState();
@@ -78,8 +80,8 @@ class _SideBarState extends State<SideBar> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            HomePage(widget._dataList, widget.a,widget.b)));
+                        builder: (context) => HomePage(
+                            widget._dataList, widget.a, widget.b, widget.c)));
               },
             ),
             ListTile(
@@ -89,8 +91,8 @@ class _SideBarState extends State<SideBar> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            Friends(widget._dataList, widget.a,widget.b)));
+                        builder: (context) => Friends(
+                            widget._dataList, widget.a, widget.b, widget.c)));
               },
             ),
             ListTile(
@@ -100,8 +102,8 @@ class _SideBarState extends State<SideBar> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            Groups(widget._dataList, widget.a,widget.b)));
+                        builder: (context) => Groups(
+                            widget._dataList, widget.a, widget.b, widget.c)));
               },
             ),
             ListTile(
@@ -111,8 +113,8 @@ class _SideBarState extends State<SideBar> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            Bills(widget._dataList, widget.a,widget.b)));
+                        builder: (context) => Bills(
+                            widget._dataList, widget.a, widget.b, widget.c)));
               },
             ),
             ListTile(
@@ -122,8 +124,8 @@ class _SideBarState extends State<SideBar> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            Requests(widget._dataList, widget.a,widget.b)));
+                        builder: (context) => Requests(
+                            widget._dataList, widget.a, widget.b, widget.c)));
               },
               trailing: ClipOval(
                 child: Container(
@@ -150,8 +152,8 @@ class _SideBarState extends State<SideBar> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            AboutUs(widget._dataList, widget.a,widget.b)));
+                        builder: (context) => AboutUs(
+                            widget._dataList, widget.a, widget.b, widget.c)));
               },
             ),
             ListTile(
