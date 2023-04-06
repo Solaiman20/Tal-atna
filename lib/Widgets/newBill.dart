@@ -1,19 +1,15 @@
-import 'dart:html';
-import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import 'package:talatna1/Objects/friends_object.dart';
-
 import '../Objects/tal\'aa.dart';
 
 class NewBill extends StatefulWidget {
   final Function _addBill;
   var titleController = TextEditingController();
-  final List<Talaa> _dataList;
+  final List<Talaa> a;
 
   NewBill(
     this._addBill,
     this.titleController,
-    this._dataList,
+    this.a,
   );
 
   @override
@@ -41,7 +37,7 @@ class _NewTalaaState extends State<NewBill> {
           children: [
             TextField(
               decoration: InputDecoration(
-                labelText: "Title:",
+                labelText: "Amount:",
                 border: OutlineInputBorder(),
               ),
               controller: widget.titleController,
@@ -53,11 +49,11 @@ class _NewTalaaState extends State<NewBill> {
             Container(
               height: 150,
               child: ListView.builder(
-                itemCount: widget._dataList.length,
+                itemCount: widget.a.length,
                 itemBuilder: (BuildContext context, int index) {
                   return RadioListTile<Talaa>(
-                    title: Text(widget._dataList[index].name),
-                    value: widget._dataList[index],
+                    title: Text(widget.a[index].name),
+                    value: widget.a[index],
                     groupValue: selectedTalaa,
                     onChanged: (Talaa? value) {
                       setState(() {

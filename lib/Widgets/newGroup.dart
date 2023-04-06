@@ -1,8 +1,7 @@
-import 'dart:html';
-import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:talatna1/Objects/friends_object.dart';
 
+import '../Objects/friends_object.dart';
 import '../Objects/tal\'aa.dart';
 
 class NewGroup extends StatefulWidget {

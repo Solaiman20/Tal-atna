@@ -54,29 +54,8 @@ class MyApp extends StatelessWidget {
       Friend("Ahmed", "ahmed@gmail.com", "SA680000243568", false),
     ], "Khobar boys")
   ];
-  final List<Bill> c = [
-    Bill(
-      "500",
-      Talaa(
-          "1989-07-28",
-          [
-            Friend("Khaled", "example@gmail.com", "SA828282983", false),
-            Friend("Naser", "e@gmail.com", "SA68000028288", false)
-          ],
-          "Riyadh",
-          "kashta"),
-    ),
-    Bill(
-        "800",
-        Talaa(
-            "2023-04-15",
-            [
-              Friend("Mohammed", "le@gmail.com", "SA8288484883", false),
-              Friend("Ahmed", "ahmed@gmail.com", "SA680000243568", false)
-            ],
-            "Dammam",
-            "cafe"))
-  ];
+
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -86,7 +65,7 @@ class MyApp extends StatelessWidget {
             stream: FirebaseAuth.instance.authStateChanges(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return HomePage(_dataList, a, b, c);
+                return HomePage(_dataList, a, b);
               } else {
                 return SignInPage();
               }

@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:talatna1/Widgets/SideBar.dart';
 
-import '../Objects/bills.dart';
 import '../Objects/friends_object.dart';
 import '../Objects/groups_object.dart';
 import '../Objects/tal\'aa.dart';
@@ -11,8 +10,8 @@ class Requests extends StatefulWidget {
   final List<Friend> _dataList;
   final List<Talaa> a;
   final List<Group> b;
-  final List<Bill> c;
-  Requests(this._dataList, this.a, this.b, this.c);
+
+  Requests(this._dataList, this.a, this.b);
 
   @override
   State<Requests> createState() => _RequestsState();
@@ -49,7 +48,11 @@ class _RequestsState extends State<Requests> {
           title: Text("Requests"),
           backgroundColor: Colors.blueGrey,
         ),
-        drawer: SideBar(widget._dataList, widget.a, widget.b,widget.c),
+        drawer: SideBar(
+          widget._dataList,
+          widget.a,
+          widget.b,
+        ),
         body: Container(
           decoration: BoxDecoration(
             color: Colors.blueGrey.shade100,

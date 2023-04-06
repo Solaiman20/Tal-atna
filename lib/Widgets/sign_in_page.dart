@@ -21,48 +21,63 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Colors.blueGrey.shade100,
-              Colors.white,
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.blueGrey.shade100,
+      ),
+      child: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+            color: Colors.blueGrey.shade100,
           ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextField(
-              controller: emailController,
-              decoration: InputDecoration(
-                labelText: "Email",
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                child: TextField(
+                  controller: emailController,
+                  decoration: InputDecoration(
+                    labelText: "Email",
+                    border: OutlineInputBorder(),
+                    filled: true,
+                    fillColor: Colors.white,
+                  ),
+                ),
               ),
-            ),
-            TextField(
-              controller: passwordController,
-              decoration: InputDecoration(
-                labelText: "Password",
+              SizedBox(height: 16.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                child: TextField(
+                  controller: passwordController,
+                  decoration: InputDecoration(
+                    labelText: "Password",
+                    border: OutlineInputBorder(),
+                    filled: true,
+                    fillColor: Colors.white,
+                  ),
+                ),
               ),
-            ),
-            ElevatedButton(
-              onPressed: signIn as dynamic,
-              child: Text("Sign in"),
-            ),
-            TextButton(
-              onPressed: signUp as dynamic,
-              child: Text("Sign Up"),
-            )
-          ],
+              SizedBox(height: 16.0),
+              ElevatedButton(
+                onPressed: () =>
+                    signIn(emailController.text, passwordController.text),
+                child: Text("Sign in"),
+              ),
+              SizedBox(height: 8.0),
+              TextButton(
+                onPressed: () =>
+                    signUp(emailController.text, passwordController.text),
+                child: Text("Sign Up"),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Future signIn({String? email, required String password}) async {
+  Future signIn(String? email, String? password) async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailController.text.trim(),
@@ -73,7 +88,7 @@ class _SignInPageState extends State<SignInPage> {
     }
   }
 
-  Future signUp({String? email, required String password}) async {
+  Future signUp(String? email, String? password) async {
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailController.text.trim(),

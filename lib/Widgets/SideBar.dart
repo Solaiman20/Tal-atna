@@ -19,8 +19,7 @@ class SideBar extends StatefulWidget {
   final List<Friend> _dataList;
   final List<Talaa> a;
   final List<Group> b;
-  final List<Bill> c;
-  SideBar(this._dataList, this.a, this.b, this.c);
+  SideBar(this._dataList, this.a, this.b);
 
   @override
   State<SideBar> createState() => _SideBarState();
@@ -30,6 +29,29 @@ class _SideBarState extends State<SideBar> {
   final user = FirebaseAuth.instance.currentUser;
 
   File? _imageFile;
+  final List<Bill> c = [
+    Bill(
+        "500",
+        Talaa(
+            "2023-04-15",
+            [
+              Friend("Mohammed", "le@gmail.com", "SA8288484883", false),
+              Friend("Ahmed", "ahmed@gmail.com", "SA680000243568", false)
+            ],
+            "Dammam",
+            "cafe")),
+    Bill(
+      "800",
+      Talaa(
+          "1989-07-28",
+          [
+            Friend("Khaled", "example@gmail.com", "SA828282983", false),
+            Friend("Naser", "e@gmail.com", "SA68000028288", false)
+          ],
+          "Riyadh",
+          "kashta"),
+    ),
+  ];
 
   Future<void> _getImage() async {
     final picker = ImagePicker();
@@ -80,8 +102,8 @@ class _SideBarState extends State<SideBar> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => HomePage(
-                            widget._dataList, widget.a, widget.b, widget.c)));
+                        builder: (context) =>
+                            HomePage(widget._dataList, widget.a, widget.b)));
               },
             ),
             ListTile(
@@ -91,8 +113,8 @@ class _SideBarState extends State<SideBar> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Friends(
-                            widget._dataList, widget.a, widget.b, widget.c)));
+                        builder: (context) =>
+                            Friends(widget._dataList, widget.a, widget.b)));
               },
             ),
             ListTile(
@@ -102,8 +124,8 @@ class _SideBarState extends State<SideBar> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Groups(
-                            widget._dataList, widget.a, widget.b, widget.c)));
+                        builder: (context) =>
+                            Groups(widget._dataList, widget.a, widget.b)));
               },
             ),
             ListTile(
@@ -113,8 +135,8 @@ class _SideBarState extends State<SideBar> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Bills(
-                            widget._dataList, widget.a, widget.b, widget.c)));
+                        builder: (context) =>
+                            Bills(widget._dataList, widget.a, widget.b, c)));
               },
             ),
             ListTile(
@@ -124,8 +146,8 @@ class _SideBarState extends State<SideBar> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Requests(
-                            widget._dataList, widget.a, widget.b, widget.c)));
+                        builder: (context) =>
+                            Requests(widget._dataList, widget.a, widget.b)));
               },
               trailing: ClipOval(
                 child: Container(
@@ -152,8 +174,8 @@ class _SideBarState extends State<SideBar> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => AboutUs(
-                            widget._dataList, widget.a, widget.b, widget.c)));
+                        builder: (context) =>
+                            AboutUs(widget._dataList, widget.a, widget.b)));
               },
             ),
             ListTile(

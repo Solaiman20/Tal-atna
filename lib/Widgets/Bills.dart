@@ -26,8 +26,6 @@ class _BillsState extends State<Bills> {
 
   final titleController = TextEditingController();
 
-  final locationController = TextEditingController();
-
   void addBill(String title, Talaa b) {
     final newtx = Bill(title, b);
     setState(() {
@@ -56,7 +54,7 @@ class _BillsState extends State<Bills> {
           title: Text("Bills"),
           backgroundColor: Colors.blueGrey,
         ),
-        drawer: SideBar(widget._dataList, widget.a, widget.b, widget.c),
+        drawer: SideBar(widget._dataList, widget.a, widget.b),
         body: Container(
           decoration: BoxDecoration(
             color: Colors.blueGrey.shade100,
@@ -69,32 +67,31 @@ class _BillsState extends State<Bills> {
                   alignment: Alignment.topCenter,
                   child: ListView.builder(
                       shrinkWrap: true,
-                      itemCount: widget.b.length,
+                      itemCount: widget.c.length,
                       itemBuilder: (BuildContext context, int index) {
                         return Card(
-                          elevation: 5,
-                          child: ListTile(
-                            onTap: () {
-                              setState(() {
-                                selectedBill = widget.c[index];
-                              });
-                            },
-                            trailing: IconButton(
-                              icon: Icon(Icons.close),
-                              onPressed: () {
+                            elevation: 5,
+                            child: ListTile(
+                              onTap: () {
                                 setState(() {
-                                  widget.b.removeAt(index);
+                                  selectedBill = widget.c[index];
                                 });
                               },
-                            ),
-                            leading: const Icon(Icons.list),
-                            title: Text(
-                              widget.b[index].title,
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 15),
-                            ),
-                          ),
-                        );
+                              trailing: IconButton(
+                                icon: Icon(Icons.close),
+                                onPressed: () {
+                                  setState(() {
+                                    widget.c.removeAt(index);
+                                  });
+                                },
+                              ),
+                              leading: const Icon(Icons.list),
+                              title: Text(
+                                widget.c[index].talaa.name,
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 15),
+                              ),
+                            ));
                       }),
                 ),
               ),

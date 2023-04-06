@@ -12,8 +12,8 @@ class Groups extends StatefulWidget {
   final List<Friend> _dataList;
   final List<Talaa> a;
   final List<Group> b;
-  final List<Bill> c;
-  Groups(this._dataList, this.a, this.b, this.c);
+
+  Groups(this._dataList, this.a, this.b);
 
   @override
   State<Groups> createState() => _GroupsState();
@@ -55,7 +55,7 @@ class _GroupsState extends State<Groups> {
           title: Text("Groups"),
           backgroundColor: Colors.blueGrey,
         ),
-        drawer: SideBar(widget._dataList, widget.a, widget.b, widget.c),
+        drawer: SideBar(widget._dataList, widget.a, widget.b),
         body: Container(
           decoration: BoxDecoration(
             color: Colors.blueGrey.shade100,
